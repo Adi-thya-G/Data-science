@@ -10,3 +10,5 @@ i am master
 hi am bugfix1
 
 i am allow the both the data their
+
+added data in master
