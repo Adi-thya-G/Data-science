@@ -12,3 +12,5 @@ hi am bugfix1
 i am allow the both the data their
 
 added data in master
+
+i am adding from master and for conflit and rebase
