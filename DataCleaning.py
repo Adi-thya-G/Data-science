@@ -35,15 +35,15 @@ df = df.drop(columns=[col for col in drop_cols if col in df.columns], errors='ig
 # -------------------------------
 # 4. Handle missing values
 # -------------------------------
-df.replace("NULL", np.nan, inplace=True)
+df.replace("NULL", np.nan, inplace=True) # in this it replace null with nan
 
 # Fill numeric columns
 num_cols = df.select_dtypes(include=['float64', 'int64']).columns
-df[num_cols] = df[num_cols].fillna(df[num_cols].median())
+df[num_cols] = df[num_cols].fillna(df[num_cols].median()) # this will fill median value for int float data type only so their will know error data type
 
 # Fill categorical columns
 cat_cols = df.select_dtypes(include=['object']).columns
-df[cat_cols] = df[cat_cols].fillna("unknown")
+df[cat_cols] = df[cat_cols].fillna("unknown") # it will file other data type like object with unknown value
 
 # -------------------------------
 # 5. Convert yes/no to 1/0
@@ -74,6 +74,9 @@ for col in num_cols:
 # -------------------------------
 # 8. Encode categorical features
 # -------------------------------
+# hot encoding that example if have city like d,k,c then i show like
+# d  k
+# 0  0 it mean both d and k not person city only c because both d and k 0 so then only once choice that is c so 
 df = pd.get_dummies(df, drop_first=True)
 
 # -------------------------------
